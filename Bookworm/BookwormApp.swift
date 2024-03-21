@@ -23,6 +23,7 @@ struct BookwormApp: App {
         // → The first time your app runs this means SwiftData has to create the underlying database file, but in future runs it will load the database it made previously.
         // 🟢 ModelContainer → An object that manages an app’s schema and model storage configuration.
         // → A model container mediates between its associated model contexts and your app’s underlying persistent storage.
+        // → ModelContainer is responsible for creating and managing the actual database file used for all SwiftData’s storage needs.
         .modelContainer(for: Book.self)
     }
 }

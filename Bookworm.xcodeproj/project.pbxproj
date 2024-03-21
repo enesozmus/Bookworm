@@ -13,6 +13,7 @@
 		DF372E6D2BAC5E16008FEB94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF372E6C2BAC5E16008FEB94 /* Preview Assets.xcassets */; };
 		DF372E742BAC5E29008FEB94 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF372E732BAC5E29008FEB94 /* Book.swift */; };
 		DFD6494C2BAC6B9900602251 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6494B2BAC6B9900602251 /* AddBookView.swift */; };
+		DFD6494E2BAC737A00602251 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6494D2BAC737A00602251 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		DF372E6C2BAC5E16008FEB94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DF372E732BAC5E29008FEB94 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		DFD6494B2BAC6B9900602251 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		DFD6494D2BAC737A00602251 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				DF372E652BAC5E15008FEB94 /* BookwormApp.swift */,
 				DF372E672BAC5E15008FEB94 /* ContentView.swift */,
 				DFD6494B2BAC6B9900602251 /* AddBookView.swift */,
+				DFD6494D2BAC737A00602251 /* DetailView.swift */,
 				DF372E732BAC5E29008FEB94 /* Book.swift */,
 				DF372E692BAC5E16008FEB94 /* Assets.xcassets */,
 				DF372E6B2BAC5E16008FEB94 /* Preview Content */,
@@ -146,6 +149,7 @@
 				DF372E682BAC5E15008FEB94 /* ContentView.swift in Sources */,
 				DF372E662BAC5E15008FEB94 /* BookwormApp.swift in Sources */,
 				DF372E742BAC5E29008FEB94 /* Book.swift in Sources */,
+				DFD6494E2BAC737A00602251 /* DetailView.swift in Sources */,
 				DFD6494C2BAC6B9900602251 /* AddBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

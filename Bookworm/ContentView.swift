@@ -14,6 +14,7 @@ struct ContentView: View {
      
         // → A model context is central to SwiftData as it’s responsible for managing the entire lifecycle of your persistent models.
         // 🟢 ModelContext → An object that enables you to fetch, insert, and delete models, and save any changes to disk.
+        // → ModelContext has the job of tracking all objects that have been created, modified, and deleted in memory, so they can all be saved to the model container at some later point.
      */
     @Environment(\.modelContext) var modelContext
     
@@ -56,6 +57,9 @@ struct ContentView: View {
                         Text("Bookworm").font(.system(.title2, design: .serif).bold())
                     }
                 }
+            }
+            .navigationDestination(for: Book.self) { book in
+                DetailView(book: book)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
