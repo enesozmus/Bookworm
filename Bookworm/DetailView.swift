@@ -16,31 +16,56 @@ struct DetailView: View {
     
     let book: Book
     
+    var bookAddedDate: String? {
+        book.addedDate.formatted(date: .abbreviated, time: .shortened)
+    }
+    
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottomTrailing) {
                 Image(book.genre)
                     .resizable()
                     .scaledToFit()
+                    .cornerRadius(10)
                 
                 Text(book.genre.uppercased())
+                    .font(.caption)
                     .fontWeight(.black)
-                    .padding(8)
+                    .padding(10)
                     .foregroundStyle(.white)
                     .background(.black.opacity(0.75))
                     .clipShape(.capsule)
                     .offset(x: -5, y: -5)
             }
+            .padding([.leading, .top, .trailing])
             
-            Text(book.author)
-                .font(.title)
-                .foregroundStyle(.secondary)
+            // ...
+            VStack {
+                Text(book.title)
+                    .font(.system(.title, design: .serif))
+                    .multilineTextAlignment(.center)
+                Text("by \(book.author)")
+                    .font(.callout)
+            }
+            .padding()
             
             Text(book.review)
+                .font(.system(.callout, design: .serif).italic())
+                .frame(maxWidth: .infinity)
                 .padding()
-            
-            RatingView(rating: .constant(book.rating))
-                .font(.largeTitle)
+            Spacer()
+            Divider()
+            VStack {
+                Text("Added \(bookAddedDate!)")
+                    .font(.caption)
+                Spacer()
+                HStack {
+                    Text("You rated it")
+                    RatingView(rating: .constant(Int(book.rating)))
+                }
+                .font(.caption)
+            }
+            .foregroundColor(.secondary)
         }
         .navigationTitle(book.title)
         .navigationBarTitleDisplayMode(.inline)
@@ -72,7 +97,7 @@ struct DetailView: View {
          */
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Book.self, configurations: config)
-        let example = Book(title: "Test Book", author: "Test Author", genre: "Fantasy", review: "This was a great book; I really enjoyed it.", rating: 4)
+        let example = Book(title: "Test Book", author: "Test Author", genre: "Fantasy", review: "This was a great book; I really enjoyed it.", rating: 4, addedDate: Date())
         
         return DetailView(book: example)
             .modelContainer(container)

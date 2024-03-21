@@ -6,6 +6,7 @@
 //
 
 import SwiftData
+import SwiftUI
 
 @Model
 class Book {
@@ -20,13 +21,15 @@ class Book {
     var genre: String
     var review: String
     var rating: Int
+    var addedDate: Date
     
-    init(title: String, author: String, genre: String, review: String, rating: Int) {
+    init(title: String, author: String, genre: String, review: String, rating: Int, addedDate: Date) {
         self.title = title
         self.author = author
         self.genre = genre
         self.review = review
         self.rating = rating
+        self.addedDate = Date()
     }
 }
 

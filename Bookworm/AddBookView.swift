@@ -51,7 +51,7 @@ struct AddBookView: View {
                 // ...
                 Section {
                     Button("Save") {
-                        let newBook = Book(title: title, author: author, genre: genre, review: review, rating: rating)
+                        let newBook = Book(title: title, author: author, genre: genre, review: review, rating: rating, addedDate: Date())
                         // → Registers the specified model with the context so it can include the model in the next save operation.
                         modelContext.insert(newBook)
                         dismiss()
