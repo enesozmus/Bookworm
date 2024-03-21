@@ -26,13 +26,26 @@ struct ContentView: View {
     ]) var books: [Book]
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        // → A view that displays a root view and enables you to present additional views over the root view.
+        // → People can add views to the top of the stack by clicking or tapping a NavigationLink
+        NavigationStack {
+            List {
+                ForEach(books) { book in
+                    NavigationLink(value: book) {
+                        HStack {
+                            // ...
+                            VStack(alignment: .leading) {
+                                Text(book.title)
+                                    .font(.headline)
+                                Text(book.author)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                }
+            }
         }
-        .padding()
+        .navigationTitle("Bookworm")
     }
 }
 
