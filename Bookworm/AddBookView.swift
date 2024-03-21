@@ -27,6 +27,25 @@ struct AddBookView: View {
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
+    // MARK: - Input Validation
+    var invalidNecessaryInputs: Bool {
+        !hasNecessaryInputs
+    }
+    
+    private var hasNecessaryInputs: Bool {
+        return (anyNecessaryFieldIsEmpty || anyNecessaryFieldContainsOnlyWhiteSpaces) ? false : true
+    }
+    
+    private var anyNecessaryFieldIsEmpty: Bool {
+        title.isEmpty || author.isEmpty || review.isEmpty
+    }
+    
+    private var anyNecessaryFieldContainsOnlyWhiteSpaces: Bool {
+        title.trimmingCharacters(in: .whitespaces) == ""
+        || author.trimmingCharacters(in: .whitespaces) == ""
+        || review.trimmingCharacters(in: .whitespaces) == ""
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -56,6 +75,7 @@ struct AddBookView: View {
                         modelContext.insert(newBook)
                         dismiss()
                     }
+                    .disabled(invalidNecessaryInputs)
                 }
                 
             }
