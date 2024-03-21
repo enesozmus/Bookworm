@@ -39,8 +39,8 @@ struct DetailView: View {
             Text(book.review)
                 .padding()
             
-            //RatingView(rating: .constant(book.rating))
-            //    .font(.largeTitle)
+            RatingView(rating: .constant(book.rating))
+                .font(.largeTitle)
         }
         .navigationTitle(book.title)
         .navigationBarTitleDisplayMode(.inline)

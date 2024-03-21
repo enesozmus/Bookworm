@@ -38,7 +38,10 @@ struct ContentView: View {
                 ForEach(books) { book in
                     NavigationLink(value: book) {
                         HStack {
-                            // ...
+                            
+                            EmojiRatingView(rating: book.rating)
+                                .font(.largeTitle)
+                            
                             VStack(alignment: .leading) {
                                 Text(book.title)
                                     .font(.headline)
@@ -48,6 +51,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: deleteBooks)
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -75,6 +79,14 @@ struct ContentView: View {
             .sheet(isPresented: $showingAddScreen) {
                 AddBookView()
             }
+        }
+    }
+    
+    // function
+    func deleteBooks(at offsets: IndexSet) {
+        for offset in offsets {
+            let book = books[offset]
+            modelContext.delete(book)
         }
     }
 }
