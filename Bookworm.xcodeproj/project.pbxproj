@@ -55,9 +55,9 @@
 			children = (
 				DF372E652BAC5E15008FEB94 /* BookwormApp.swift */,
 				DF372E672BAC5E15008FEB94 /* ContentView.swift */,
+				DF372E732BAC5E29008FEB94 /* Book.swift */,
 				DF372E692BAC5E16008FEB94 /* Assets.xcassets */,
 				DF372E6B2BAC5E16008FEB94 /* Preview Content */,
-				DF372E732BAC5E29008FEB94 /* Book.swift */,
 			);
 			path = Bookworm;
 			sourceTree = "<group>";
