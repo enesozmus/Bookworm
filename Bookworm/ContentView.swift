@@ -37,15 +37,41 @@ struct ContentView: View {
             List {
                 ForEach(books) { book in
                     NavigationLink(value: book) {
-                        HStack {
+                        // ...
+                        HStack(alignment: .top) {
                             
+                            // 1
                             EmojiRatingView(rating: book.rating)
-                                .font(.largeTitle)
+                                .font(.title)
                             
+                            // 2
                             VStack(alignment: .leading) {
                                 Text(book.title)
                                     .font(.headline)
                                 Text(book.author)
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            Spacer()
+                            
+                            // 3
+                            VStack(alignment: .trailing) {
+                                HStack(spacing: 3) {
+                                    Text("\(book.rating)")
+                                        .font(.headline)
+                                    Image(systemName: "star.fill")
+                                        .font(.caption)
+                                }
+                                .foregroundColor(
+                                    book.rating == 1 ? .secondary
+                                    : book.rating == 2 ? .blue
+                                    : book.rating == 3 ? .teal
+                                    : book.rating == 4 ? .orange
+                                    : .pink
+                                )
+                                
+                                Text(book.genre)
+                                    .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
                         }
