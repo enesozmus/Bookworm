@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     /*
+        // 🟢 @Environment→ A property wrapper that reads a value from a view’s environment.
+     
         // → A model context is central to SwiftData as it’s responsible for managing the entire lifecycle of your persistent models.
         // 🟢 ModelContext → An object that enables you to fetch, insert, and delete models, and save any changes to disk.
      */
@@ -24,6 +26,8 @@ struct ContentView: View {
         SortDescriptor(\Book.title),
         SortDescriptor(\Book.author)
     ]) var books: [Book]
+    
+    @State private var showingAddScreen = false
     
     var body: some View {
         // → A view that displays a root view and enables you to present additional views over the root view.
@@ -44,8 +48,30 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    VStack {
+                        Spacer()
+                        Text("Bookworm").font(.system(.title2, design: .serif).bold())
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Add Book", systemImage: "plus") {
+                        showingAddScreen.toggle()
+                    }
+                }
+            }
+            .sheet(isPresented: $showingAddScreen) {
+                AddBookView()
+            }
         }
-        .navigationTitle("Bookworm")
     }
 }
 
